@@ -3,6 +3,8 @@ AngularJS notes from Xing
 
 ## Intro
 
+ng new projectName –dir ./folderName
+
 Angular CLI (command line interface); TypeScript.
 
 需要Nodejs和npm, 用ng new porj-name来创建新proj, ng serve -o automatically open your browser on http://localhost:4200/.
