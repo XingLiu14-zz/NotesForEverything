@@ -20,3 +20,7 @@ Structures for handling internet addresses:
 	struct in_addr {
     	unsigned long s_addr;  // load with inet_aton()
 	};
+
+socklen_t, which is an unsigned opaque integral type of length of at least 32 bits
+
+	#include <sys/socket.h>
