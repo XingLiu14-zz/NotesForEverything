@@ -21,6 +21,14 @@ Structures for handling internet addresses:
     	unsigned long s_addr;  // load with inet_aton()
 	};
 
-socklen_t, which is an unsigned opaque integral type of length of at least 32 bits
+<sys/socket.h> makes available a type, socklen_t, which is an unsigned opaque integral type of length of at least 32 bits
 
 	#include <sys/socket.h>
+
+memset：void * memset ( void * ptr, int value, size_t num );
+
+	char str[] = "almost every programmer should know memset!";
+	memset (str,'-',6);
+
+	str = "------ every programmer should know memset!"
+
