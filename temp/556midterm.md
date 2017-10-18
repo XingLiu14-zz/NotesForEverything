@@ -30,7 +30,7 @@ windows size最好占满整个rtt，需要2n个sequence number来表示一个n�
 Two dementional parity: 四个bit错误有可能检查不出  
 
 Ethernet uses cyclic redundancy check(CRC); Internet protocols uses 1's complement sum:  
-CRC: represent n-bit message as an n-1 degree polynomial, we want to send M(x), choose a divisor k-degree polynomial C(x), T(x) = M(x)*x^k - R(x) = A(x)*C(x)。sender把T(x)发过去，先把要传输的值乘C(x)的指数，再减去这个数除C(x)的余数，再坚持可不可以被C(x)整除  
+CRC: represent n-bit message as an n-1 degree polynomial, we want to send M(x), choose a divisor k-degree polynomial C(x), T(x) = M(x)*x^k - R(x) = A(x)*C(x)。sender把T(x)发过去，先把要传输的值乘C(x)的指数，再减去这个数除C(x)的余数，再检查可不可以被C(x)整除  
 1‘s complement sum: 用反码来算减法
 
 ### Encoding and Framing
@@ -55,4 +55,12 @@ RTS: request to send, CTS: clear to send.当你听到CTS，不要传，直到听
 
 ### Scaling ethernet
 
+Ethernet switch called bridges, each bridge maintain a forwarding database with entries <MAC address, port, age>  
+bridge只会记住packet从哪个port来的
+
+Spanning tree:  
+ConfigurationBridge Protocol Data Unit (BPDU), root bridge, designated bridge, (designated port) root port  
+先比root ID, 然后是path cost，然后是自己的ID。B的root port和所有以B作为root bridge是通的，B只给所有高的port发消息
+
 ### IP
+
