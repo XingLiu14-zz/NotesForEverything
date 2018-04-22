@@ -1,3 +1,3 @@
-#### Stock Market Investing from Udemy
--------------------------------------
+Stock Market Investing from Udemy
+======================================
 
