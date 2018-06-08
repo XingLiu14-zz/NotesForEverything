@@ -135,6 +135,98 @@ c := b[:2]
 d := c[2:5]
 ```
 - `func append(s []T, vs ...T) []T`，第一个参数是一个元素类型为T的切片，后面是T的值。当底层数组太小时，会自动分配它会自动更大数组（大小不一定会匹配正好要的）
+- for循环的`range`形式可以遍历切片或map，每次都会返回两个值，第一个为当前下标，第二个为对应元素副本。若想忽略下标，赋`_`即可。
+- **Practice: Slcie**
+```
+package main
+
+import "golang.org/x/tour/pic"
+
+func Pic(dx, dy int) [][]uint8 {
+	p := make([][]uint8, dy)
+	for i := range p {
+		p[i] = make([]uint8, dx)
+	}
+	
+	for y, row := range p {
+		for x := range row {
+			row[x] = uint8(x%(y+1))
+		}
+	}
+	return p
+}
+
+func main() {
+	pic.Show(Pic)
+}
+```
+- `Map`
+```
+var m = map[string]Vertex{
+	"Bell Labs": {40.68433, -74.39967},
+	"Google":    {37.42202, -122.08408},
+}
+
+m[key] = elem
+elem = m[key]
+delete(m, key)
+elem, ok = m[key]
+```
+- 函数可以当函数的参数，传一个函数进去。闭包，数据与行为的结合
+- struct的method，如果要修改struct的值，则需要用指针当接受者。并且这种情况下，传值也可以
+```
+func (v *Vertex) Scale(f float64) {
+	v.X = v.X * f
+	v.Y = v.Y * f
+}
+```
+- Interface
+```
+type Abser interface {
+	Abs() float64
+}
+
+func main() {
+	var a Abser
+	f := MyFloat(-math.Sqrt2)
+	v := Vertex{3, 4}
+
+	a = f  // a MyFloat 实现了 Abser
+	a = &v // a *Vertex 实现了 Abser
+}
+
+type MyFloat float64
+
+func (f MyFloat) Abs() float64 {
+	if f < 0 {
+		return float64(-f)
+	}
+	return float64(f)
+}
+
+type Vertex struct {
+	X, Y float64
+}
+
+func (v *Vertex) Abs() float64 {
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
