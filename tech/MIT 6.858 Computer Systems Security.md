@@ -7,3 +7,11 @@
 
 **Buffer overflow**: failure of mechanism  
 - $overwrite `$ebp`
+
+#### Lecture 2:
+1. Anoids bugs in C code
+2. Build tools to help find bugs
+3. Use mem-safe language
+
+#### Lecture 3:
+
